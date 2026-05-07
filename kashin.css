@@ -1,0 +1,313 @@
+/* --- Food Page Specific Styles --- */
+.food-page-container {
+    padding: 10px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.page-title h1 {
+    font-size: 25px;
+    color: #edeff3;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.page-title p{
+    color: rgb(230, 115, 115);
+}
+.tab-item p{
+    color: white;
+}
+strong{
+    color: rgb(230, 115, 115);
+}
+/* Grid Layout for Desktop */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* Card Styling */
+.food-card {
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-10px);
+}
+
+.food-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.food-info {
+    padding: 25px;
+    color: #333;
+}
+
+.food-info h2 {
+    color: #fffcfe;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.tab-item {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.health-note {
+    background: rgba(57, 117, 190, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #3975be;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 600px) {
+    .food-grid {
+        grid-template-columns: 1fr; /* ဖုန်းမှာ တစ်ခုချင်းပဲ ပြမယ် */
+    }
+    
+    .food-image img {
+        height: 100px;
+    }
+}
+/*ဒီနေရာကနေ စပြီး Navi နဲ့ Background အတွက် style.css ကကုဒ်တွေ ကူးထည့်ထားတာပါ။*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #050816;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ================= BACKGROUND EFFECT ================= */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,153,255,0.25), transparent 70%);
+    filter: blur(80px);
+    z-index: -2;
+    animation: floatBlob 18s infinite alternate ease-in-out;
+}
+
+body::before {
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 6s;
+}
+
+@keyframes floatBlob {
+    0% { transform: translate(0,0) scale(1); }
+    100% { transform: translate(100px,80px) scale(1.2); }
+}
+
+/* ဒါက နောက်ခံရဲ့ ရေးရေးလေး ပြေးနေတဲ့ Anumation */
+.light-sweep {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(0,170,255,0.08) 50%,
+        transparent 60%
+    );
+    z-index: -1;
+    animation: sweep 8s infinite;
+}
+
+@keyframes sweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* --- Navbar Glass Style --- */
+.wrapper {
+    position: sticky;  /* 👈 ဤနေရာမှာ အဓိကပါ */
+    top: 0;           /* 👈 အပေါ်ဆုံးမှာ ကပ်နေဖို့ သတ်မှတ်ချက်ပါ */
+    z-index: 1000;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #081032; /* Glass Background */
+    backdrop-filter: blur(10px); /* Blur Effect */
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000; /* ပုံတွေရဲ့ အပေါ်မှာ ပေါ်နေစေရန် */
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+nav a {
+    position: relative;
+    padding: 8px 16px;
+    color: #f3f5f8; /* Normal color */
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #00d4ff; /* Electric Blue */
+    background: rgba(0, 212, 255, 0.1); /* Subtle Glow Background */
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8); /* Neon Text Glow */
+    border-radius: 8px;
+}
+
+/* အောက်ကနေ မျဉ်းလေး ထွက်လာမယ့် Effect */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00d4ff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #00d4ff;
+}
+
+nav a:hover::after {
+    width: 80%; /* Hover လုပ်ရင် မျဉ်းလေး ပေါ်လာမယ် */
+}
+
+/* --- Dropdown Styling --- */
+.dropdown { 
+    position: relative; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #081032;
+    min-width: 180px;
+    top: 45px;
+    left: 0;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    padding: 10px 0;
+    backdrop-filter: blur(15px);
+}
+
+/* Dropdown Show Class (JS မှ လှမ်းခေါ်ရန်) */
+.dropdown-content.show { 
+    display: block !important; 
+}
+
+.dropdown-content li a {
+    padding: 12px 20px;
+    display: block;
+    color: #fbf7f7 !important;
+    font-weight: 500;
+}
+
+.dropdown-content li a:hover {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db !important;
+    padding-left: 25px;
+}
+
+/* Mobile Toggle Checkbox ဖျောက်ထားရန် */
+#toggle, nav label {
+    display: none;
+}
+
+/* --- Mobile Responsive Design --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+    }
+
+    nav label {
+        display: inline-flex;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    nav .menu {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: rgba(30, 0, 60, 0.95);
+        border-radius: 8px;
+        margin-top: 10px;
+        transition: height 0.4s ease;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0;
+        gap: 1.5rem;
+    }
+
+    #toggle:checked ~ .menu {
+        height: 380px; /* Menu ပေါ်လာမည့် အမြင့် */
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-content li a {
+        color: white !important;
+    }
+}
