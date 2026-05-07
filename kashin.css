@@ -295,10 +295,11 @@ nav a:hover::after {
         gap: 1.5rem;
     }
 
-    #toggle:checked ~ .menu {
-        height: 380px; /* Menu ပေါ်လာမည့် အမြင့် */
+   #toggle:checked ~ .menu {
+        /* height: 380px;  <-- ဒါကို ဖျက်ပါ */
+        height: auto;      /* အထဲက စာသားအလိုက် အလိုအလျောက် ရှည်သွားမယ် */
+        padding-bottom: 20px; /* အောက်ခြေမှာ နည်းနည်း ခြားထားပေးဖို့ */
     }
-
     .dropdown-content {
         position: static;
         box-shadow: none;
