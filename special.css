@@ -1,0 +1,547 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+p{
+     font-size: 18px;
+    color: #fcf9f9;
+    
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+header {
+    
+    background-position: center;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 28px;
+     color: #fcf9f9;
+    margin-bottom: 40px;
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #ff9f43;
+}
+/* --- Laptop/Desktop အတွက် အခြေခံ (အရင်အတိုင်း) --- */
+.container1, .container2 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.image-part1 img, .image-part2 img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.text-part1, .text-part2 {
+    flex: 1;
+}
+
+/* --- Mobile Version အတွက် အထူးပြင်ဆင်ချက် (768px အောက်ဖုန်းများအတွက်) --- */
+@media (max-width: 768px) {
+    .container1, .container2 {
+        flex-direction: column; /* ပုံနဲ့စာကို အပေါ်အောက် စီလိုက်မယ် */
+        padding: 20px;
+        text-align: center;    /* စာတွေကို အလယ်ပို့ပေးမယ် */
+    }
+
+    .container2 {
+        flex-direction: column; /* Container 2 ရဲ့ row-reverse ကို ဖုန်းမှာ ပုံမှန်အတိုင်း ပြန်ပြင်မယ် */
+    }
+
+    .image-part1 img, .image-part2 img {
+        max-width: 100%;      /* ပုံကို ဖုန်း screen အပြည့် ယူခိုင်းမယ် */
+        margin-bottom: 20px;   /* ပုံနဲ့စာကြား ခြားပေးမယ် */
+    }
+
+    .text-part1 h2, .text-part2 h2 {
+        font-size: 24px;      /* ခေါင်းစဉ်ကို ဖုန်းနဲ့တော်အောင် လျှော့မယ် */
+        margin-bottom: 15px;
+    }
+
+    .text-part1 p, .text-part2 p {
+        font-size: 16px;      /* စာသားတွေကို ဖုန်းမှာ ဖတ်ရလွယ်အောင် ချိန်ညှိမယ် */
+        line-height: 1.6;
+    }
+}
+.team-container { 
+            display: flex;
+            flex-wrap: wrap;     
+            justify-content: center; 
+            gap: 20px;         
+            padding: 40px;
+        }
+/* member-card ထဲက ပုံတွေကို ဘေးတိုက်စီမယ် */
+/* member-card container ကို ပုံစံချခြင်း */
+.member-card {
+    display: flex;         
+    flex-direction: row;   /* အတန်းလိုက် ထားမယ် */
+    justify-content: center; 
+    gap: 10px;             /* ပုံကြား အကွာအဝေး (ဖုန်းအတွက် နည်းနည်းလျှော့ထားတယ်) */
+    padding: 10px;
+    width: 100%;           /* Container အကျယ်ကို ၁၀၀% ယူမယ် */
+}
+
+/* ပုံတွေအတွက် Flexible ဖြစ်အောင် ပြင်ခြင်း */
+.member-card img {
+    /* ပုံ ၃ ပုံကို တစ်တန်းတည်း ထားမှာဖြစ်တဲ့အတွက် 
+       gap တွေ နုတ်ပြီး တစ်ပုံကို 30% ဝန်းကျင် ပေးထားပါမယ် 
+    */
+    width: calc(33.33% - 10px); 
+    max-width: 400px;      /* Laptop မှာ 400px ထက် မကြီးစေရန် */
+    height: 250px;         /* ဖုန်းမှာ အရမ်းရှည်မနေအောင် အမြင့်ကို လျှော့ထားတယ် */
+    object-fit: cover;     
+    border-radius: 10px;
+}
+
+/* ဖုန်း version အတွက် အထူးသီးသန့် ပြင်ဆင်ချက် */
+@media (max-width: 768px) {
+    .member-card img {
+        height: 150px;     /* ဖုန်းမှာ ပုံအမြင့်ကို သင့်တော်သလို လျှော့လိုက်ပါ */
+    }
+}
+
+
+            
+/* --- Global Reset & Smooth Transition --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #050816;
+    min-height: 100vh;
+    color: #e6f1ff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ================= BACKGROUND EFFECT ================= */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,153,255,0.25), transparent 70%);
+    filter: blur(80px);
+    z-index: -2;
+    animation: floatBlob 18s infinite alternate ease-in-out;
+}
+
+body::before {
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    bottom: -100px;
+    right: -100px;
+    animation-delay: 6s;
+}
+
+@keyframes floatBlob {
+    0% { transform: translate(0,0) scale(1); }
+    100% { transform: translate(100px,80px) scale(1.2); }
+}
+.one{
+    color: rgb(216, 32, 109);
+}
+.two{
+    color: rgb(211, 87, 25);
+}
+.three{
+    color: rgb(10, 133, 75);
+}
+.four{
+    color: #3498db;
+}
+.five{
+    color: aquamarine;
+}
+.six{
+    color: burlywood;
+}
+/* ဒါက နောက်ခံရဲ့ ရေးရေးလေး ပြေးနေတဲ့ Anumation */
+.light-sweep {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(0,170,255,0.08) 50%,
+        transparent 60%
+    );
+    z-index: -1;
+    animation: sweep 8s infinite;
+}
+
+@keyframes sweep {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+
+/* navor ရဲ့ မိဘ , အရွယ်အစားကို ချိန်ညှိရန် နေရာ*/
+.wrapper {
+    position: sticky;  /* 👈 ဤနေရာမှာ အဓိကပါ */
+    top: 0;           /* 👈 အပေါ်ဆုံးမှာ ကပ်နေဖို့ သတ်မှတ်ချက်ပါ */
+    z-index: 1000;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #081032; /* Glass Background */
+    backdrop-filter: blur(10px); /* Blur Effect */
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000; /* ပုံတွေရဲ့ အပေါ်မှာ ပေါ်နေစေရန် */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+nav a {
+    position: relative;
+    padding: 8px 16px;
+    color: #f3f5f8; /* Normal color */
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #00d4ff; /* Electric Blue */
+    background: rgba(0, 212, 255, 0.1); /* Subtle Glow Background */
+    /**text-shadow: 0 0 10px rgba(255, 251, 0, 0.8); /* Neon Text Glow */
+    text-shadow: gold;
+    border-radius: 8px;
+}
+
+/* အောက်ကနေ မျဉ်းလေး ထွက်လာမယ့် Effect */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #00d4ff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #00d4ff;
+}
+
+nav a:hover::after {
+    width: 80%; /* Hover လုပ်ရင် မျဉ်းလေး ပေါ်လာမယ် */
+}
+
+/* --- Dropdown Styling --- */
+.dropdown { 
+    position: relative; 
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: #081032;
+    min-width: 180px;
+    top: 45px;
+    left: 0;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    padding: 10px 0;
+    backdrop-filter: blur(15px);
+}
+
+/* Dropdown Show Class (JS မှ လှမ်းခေါ်ရန်) */
+.dropdown-content.show { 
+    display: block !important; 
+}
+
+.dropdown-content li a {
+    padding: 12px 20px;
+    display: block;
+    color: #fbf7f7 !important;
+    font-weight: 500;
+}
+
+.dropdown-content li a:hover {
+    background: rgba(52, 152, 219, 0.1);
+    color: #3498db !important;
+    padding-left: 25px;
+}
+
+/* Mobile Toggle Checkbox ဖျောက်ထားရန် */
+#toggle, nav label {
+    display: none;
+}
+
+/* --- Mobile Responsive Design --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+    }
+
+    nav label {
+        display: inline-flex;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
+    nav .menu {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: rgba(30, 0, 60, 0.95);
+        border-radius: 8px;
+        margin-top: 10px;
+        transition: height 0.4s ease;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem 0;
+        gap: 1.5rem;
+    }
+
+    #toggle:checked ~ .menu {
+        height: 380px; /* Menu ပေါ်လာမည့် အမြင့် */
+    }
+
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.1);
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-content li a {
+        color: white !important;
+    }
+}
+
+/* --- Content Section Styling --- */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.hero-section {
+    padding: 70px 0;
+    padding-top: 0px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+/* TEXT SLIDER */
+.slider {
+    display: inline-block;
+    height: 45px;
+    overflow: hidden;
+}
+
+.slide-track {
+    display: flex;
+    flex-direction: column;
+    animation: slideText 9s infinite;
+}
+
+.slide-track span {
+    height: 40px;
+    line-height: 40px;
+}
+
+@keyframes slideText {
+    0%,20% { transform: translateY(0); }
+    33%,53% { transform: translateY(-40px); }
+    66%,86% { transform: translateY(-80px); }
+    100% { transform: translateY(0); }
+}
+
+/* BANNERS */
+.banner-box {
+    margin: 20px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    display: inline-block;
+}
+
+
+.banner-box img {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.banner-box img:hover {
+    transform: scale(1.05);
+}
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 30px;
+.slider-container {
+    overflow:hidden;
+    width: 100%;
+
+}
+}
+
+/* TRACK */
+.slider-track {
+    display: flex;
+    width: 100%;
+}
+
+/* EACH SLIDE */
+.slide {
+    min-width: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* KEY FIX */
+.slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,170,255,0.2);
+    border: none;
+    color: #00d4ff;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.nav-btn:hover {
+    background: rgba(0,170,255,0.5);
+}
+@media (max-width: 768px) {
+
+    /* Reduce overall spacing */
+    .hero-section {
+        padding: 30px 0;
+    }
+    .nav-btn {
+        display: none;
+    }
+
+
+    .hero-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* FIX IMAGE HEIGHT (VERY IMPORTANT) */
+    .slide img {
+        height: 220px;   /* smaller height for mobile */
+        object-fit: cover;
+    }
+
+    /* Make slider edges softer */
+    .slider-container {
+        border-radius: 12px;
+    }
+
+    /* Smaller navigation buttons */
+    .nav-btn {
+        font-size: 20px;
+        padding: 6px 10px;
+    }
+
+    .prev { left: 8px; }
+    .next { right: 8px; }
+
+}
+@media (max-width: 480px) {
+
+    .slide img {
+        height: 180px;
+    }
+
+    .hero-title {
+        font-size: 18px;
+    }
+
+    .nav-btn {
+        font-size: 16px;
+        padding: 5px 8px;
+    }
+}
