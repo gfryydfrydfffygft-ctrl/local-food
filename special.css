@@ -42,53 +42,30 @@ header {
 .highlight {
     color: #ff9f43;
 }
-/* --- Laptop/Desktop အတွက် အခြေခံ (အရင်အတိုင်း) --- */
-.container1, .container2 {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    padding: 40px 20px;
-    width: 100%;
+.container1{
+  display: flex;       /* ပုံနဲ့စာကို ဘေးတိုက်ဖြစ်စေတယ် */
+  align-items: center; /* အလယ်ဗဟိုမှာ ညီအောင်ညှိပေးတယ် */
+  gap: 20px;           /* ပုံနဲ့စာကြား အကွာအဝေး */
+  padding: 20px;
+  
 }
 
-.image-part1 img, .image-part2 img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+.image-part1 img {
+  width: 100%;         /* ပုံကို သူ့အကွက်ထဲ အပြည့်ဖြစ်စေတယ် */
+  max-width: 500px;    /* ပုံရဲ့ အကျယ်ကို သတ်မှတ်နိုင်တယ် */
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+
 }
 
-.text-part1, .text-part2 {
-    flex: 1;
-}
-
-/* --- Mobile Version အတွက် အထူးပြင်ဆင်ချက် (768px အောက်ဖုန်းများအတွက်) --- */
-@media (max-width: 768px) {
-    .container1, .container2 {
-        flex-direction: column; /* ပုံနဲ့စာကို အပေါ်အောက် စီလိုက်မယ် */
-        padding: 20px;
-        text-align: center;    /* စာတွေကို အလယ်ပို့ပေးမယ် */
-    }
-
-    .container2 {
-        flex-direction: column; /* Container 2 ရဲ့ row-reverse ကို ဖုန်းမှာ ပုံမှန်အတိုင်း ပြန်ပြင်မယ် */
-    }
-
-    .image-part1 img, .image-part2 img {
-        max-width: 100%;      /* ပုံကို ဖုန်း screen အပြည့် ယူခိုင်းမယ် */
-        margin-bottom: 20px;   /* ပုံနဲ့စာကြား ခြားပေးမယ် */
-    }
-
-    .text-part1 h2, .text-part2 h2 {
-        font-size: 24px;      /* ခေါင်းစဉ်ကို ဖုန်းနဲ့တော်အောင် လျှော့မယ် */
-        margin-bottom: 15px;
-    }
-
-    .text-part1 p, .text-part2 p {
-        font-size: 16px;      /* စာသားတွေကို ဖုန်းမှာ ဖတ်ရလွယ်အောင် ချိန်ညှိမယ် */
-        line-height: 1.6;
-    }
+.text-part1 {
+  flex: 1; 
+   font-size: 18px;
+    color: #fcf9f9;
+    
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);            /* စာကွက်ကို ကျန်တဲ့နေရာ အပြည့်ယူစေတယ် */
 }
 .team-container { 
             display: flex;
@@ -98,36 +75,51 @@ header {
             padding: 40px;
         }
 /* member-card ထဲက ပုံတွေကို ဘေးတိုက်စီမယ် */
-/* member-card container ကို ပုံစံချခြင်း */
 .member-card {
-    display: flex;         
-    flex-direction: row;   /* အတန်းလိုက် ထားမယ် */
-    justify-content: center; 
-    gap: 10px;             /* ပုံကြား အကွာအဝေး (ဖုန်းအတွက် နည်းနည်းလျှော့ထားတယ်) */
-    padding: 10px;
-    width: 100%;           /* Container အကျယ်ကို ၁၀၀% ယူမယ် */
+    display: flex;         /* Flexbox သုံးပြီး Row စီမယ် */
+    flex-direction: row;   /* ဘေးတိုက်စီဖို့ (Default လည်း row ပါပဲ) */
+    justify-content: center; /* ပုံတွေကို အလယ်မှာ စုပေးမယ် */
+    gap: 15px;             /* ပုံတစ်ပုံနဲ့ တစ်ပုံကြား အကွာအဝေး */
+    padding: 20px;
 }
 
-/* ပုံတွေအတွက် Flexible ဖြစ်အောင် ပြင်ခြင်း */
+/* ပုံတွေ အကြီးကြီးဖြစ်မနေအောင် အရွယ်အစား သတ်မှတ်မယ် */
 .member-card img {
-    /* ပုံ ၃ ပုံကို တစ်တန်းတည်း ထားမှာဖြစ်တဲ့အတွက် 
-       gap တွေ နုတ်ပြီး တစ်ပုံကို 30% ဝန်းကျင် ပေးထားပါမယ် 
-    */
-    width: calc(33.33% - 10px); 
-    max-width: 400px;      /* Laptop မှာ 400px ထက် မကြီးစေရန် */
-    height: 250px;         /* ဖုန်းမှာ အရမ်းရှည်မနေအောင် အမြင့်ကို လျှော့ထားတယ် */
-    object-fit: cover;     
-    border-radius: 10px;
+    width: 400px;          /* ပုံရဲ့ အကျယ် (စိတ်ကြိုက်ပြင်ပါ) */
+    height: 350px;         /* ပုံရဲ့ အမြင့် */
+    object-fit: cover;     /* ပုံမပြဲသွားအောင် ထိန်းမယ် */
+    border-radius: 10px;   /* ထောင့်လေးတွေ ဝိုင်းချင်ရင် ထည့်ပါ */
+}
+.container2{
+  display: flex;       /* ပုံနဲ့စာကို ဘေးတိုက်ဖြစ်စေတယ် */
+  align-items: center; /* အလယ်ဗဟိုမှာ ညီအောင်ညှိပေးတယ် */
+  gap: 20px;           /* ပုံနဲ့စာကြား အကွာအဝေး */
+  padding: 20px;
+  flex-direction: row-reverse;
+}
+.image-part2 img {
+  width: 100%;         /* ပုံကို သူ့အကွက်ထဲ အပြည့်ဖြစ်စေတယ် */
+  max-width: 500px;    /* ပုံရဲ့ အကျယ်ကို သတ်မှတ်နိုင်တယ် */
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+
 }
 
-/* ဖုန်း version အတွက် အထူးသီးသန့် ပြင်ဆင်ချက် */
+.text-part2 {
+  flex: 1; 
+   font-size: 18px;
+    color: #fcf9f9;
+    
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);            /* စာကွက်ကို ကျန်တဲ့နေရာ အပြည့်ယူစေတယ် */
+}
+/* ဖုန်းနဲ့ကြည့်ရင် တစ်ခုပေါ်တစ်ခုအောက် ဆင်းသွားအောင် လုပ်နည်း */
 @media (max-width: 768px) {
-    .member-card img {
-        height: 150px;     /* ဖုန်းမှာ ပုံအမြင့်ကို သင့်တော်သလို လျှော့လိုက်ပါ */
-    }
+  .container {
+    flex-direction: column;
+  }
 }
-
-
             
 /* --- Global Reset & Smooth Transition --- */
 * {
@@ -305,6 +297,8 @@ nav a:hover::after {
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     padding: 10px 0;
     backdrop-filter: blur(15px);
+    max-height: 70vh;
+    overflow-y: auto;
 }
 
 /* Dropdown Show Class (JS မှ လှမ်းခေါ်ရန်) */
@@ -313,10 +307,10 @@ nav a:hover::after {
 }
 
 .dropdown-content li a {
-    padding: 12px 20px;
+    padding: 10px 20px;
     display: block;
     color: #fbf7f7 !important;
-    font-weight: 500;
+    font-size: 14px;
 }
 
 .dropdown-content li a:hover {
@@ -370,8 +364,16 @@ nav a:hover::after {
         background: rgba(255, 255, 255, 0.1);
         width: 100%;
         text-align: center;
+        
+        max-height: 70vh;
+        overflow-y: auto;
     }
-    
+        .dropdown-content li a {
+        padding: 5px 15px !important;
+        display: block;
+        color: #fbf7f7 !important;
+        font-size: 12px;
+    }
     .dropdown-content li a {
         color: white !important;
     }
@@ -544,4 +546,109 @@ nav a:hover::after {
         font-size: 16px;
         padding: 5px 8px;
     }
+}
+@media (max-width: 768px) {
+    p{
+     font-size: 8px;
+    color: #fcf9f9;
+    
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+header {
+    
+    background-position: center;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 8px;
+     color: #fcf9f9;
+    margin-bottom: 40px;
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 0px;
+}
+
+.highlight {
+    color: #ff9f43;
+}
+.container1{
+  display: flex;       /* ပုံနဲ့စာကို ဘေးတိုက်ဖြစ်စေတယ် */
+  align-items: center; /* အလယ်ဗဟိုမှာ ညီအောင်ညှိပေးတယ် */
+  gap: 0px;           /* ပုံနဲ့စာကြား အကွာအဝေး */
+  padding: 3px;
+  
+}
+
+.image-part1 img {
+  width: 100%;         /* ပုံကို သူ့အကွက်ထဲ အပြည့်ဖြစ်စေတယ် */
+  max-width: 100px;    /* ပုံရဲ့ အကျယ်ကို သတ်မှတ်နိုင်တယ် */
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+
+}
+
+.text-part1 {
+  flex: 1; 
+   font-size: 18px;
+    color: #fcf9f9;
+    
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);            /* စာကွက်ကို ကျန်တဲ့နေရာ အပြည့်ယူစေတယ် */
+}
+.team-container { 
+            display: flex;
+            flex-wrap: wrap;     
+            justify-content: center; 
+            gap: 0px;         
+            padding: 0px;
+        }
+/* member-card ထဲက ပုံတွေကို ဘေးတိုက်စီမယ် */
+.member-card {
+    display: flex;         /* Flexbox သုံးပြီး Row စီမယ် */
+    flex-direction: row;   /* ဘေးတိုက်စီဖို့ (Default လည်း row ပါပဲ) */
+    justify-content: center; /* ပုံတွေကို အလယ်မှာ စုပေးမယ် */
+    gap: 5px;             /* ပုံတစ်ပုံနဲ့ တစ်ပုံကြား အကွာအဝေး */
+    padding: 10px;
+}
+
+/* ပုံတွေ အကြီးကြီးဖြစ်မနေအောင် အရွယ်အစား သတ်မှတ်မယ် */
+.member-card img {
+    width: 100px;          /* ပုံရဲ့ အကျယ် (စိတ်ကြိုက်ပြင်ပါ) */
+    height: 50px;         /* ပုံရဲ့ အမြင့် */
+    object-fit: cover;     /* ပုံမပြဲသွားအောင် ထိန်းမယ် */
+    border-radius: 10px;   /* ထောင့်လေးတွေ ဝိုင်းချင်ရင် ထည့်ပါ */
+}
+.container2{
+  display: flex;       /* ပုံနဲ့စာကို ဘေးတိုက်ဖြစ်စေတယ် */
+  align-items: center; /* အလယ်ဗဟိုမှာ ညီအောင်ညှိပေးတယ် */
+  gap: 0px;           /* ပုံနဲ့စာကြား အကွာအဝေး */
+  padding: 0px;
+  flex-direction: row-reverse;
+}
+.image-part2 img {
+  width: 100%;         /* ပုံကို သူ့အကွက်ထဲ အပြည့်ဖြစ်စေတယ် */
+  max-width: 100px;    /* ပုံရဲ့ အကျယ်ကို သတ်မှတ်နိုင်တယ် */
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+
+}
+
+.text-part2 {
+  flex: 1; 
+   font-size: 18px;
+    color: #fcf9f9;
+    
+    font-weight: 500;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);            /* စာကွက်ကို ကျန်တဲ့နေရာ အပြည့်ယူစေတယ် */
+}
 }
